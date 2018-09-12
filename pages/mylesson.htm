@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的课程</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <meta name="keywords" content="中国脑力联盟">
+    <meta name="description" content="中国脑力联盟">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.min.css">
+    <link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+</head>
+
+<body ontouchstart style="background: #fff;">
+    <div class="points_details my-order navbar js_show">
+        <div class="" style="height: 100%;">
+            <div class="weui-tab">
+                <div class="weui-navbar">
+                    <a class="weui-navbar__item weui-bar__item--on" href="#tab1">
+                        最近学习
+                    </a>
+                    <a class="weui-navbar__item" href="#tab2">
+                        已购课程
+                    </a>
+                </div>
+                <div class="weui-tab__bd last-study  order-info">
+                    <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active ">
+                        
+                    </div>
+
+                    <div id="tab2" class="weui-tab__bd-item paied-lesson">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--底部菜单开始-->
+    <div class="footer-tabbar js_show">
+        <div class="weui-tabbar">
+            <a href="../index.htm" class="weui-tabbar__item">
+                <img src="../img/footer_1.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">首页</p>
+            </a>
+            <a href="../pages/mylesson.htm" class="weui-tabbar__item weui-bar__item_on">
+                <img src="../img/footer_hover2.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">我的课程</p>
+            </a>
+
+            <a href="../pages/usercenter.htm" class="weui-tabbar__item">
+                <img src="../img/footer_3.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">我的</p>
+            </a>
+        </div>
+    </div>
+    <script src="../lib/jquery-2.1.4.js"></script>
+    <script src="../lib/fastclick.js"></script>
+    <script src="../js/jquery-weui.min.js"></script>
+    <!--<script src="js/swiper.min.js"></script>-->
+    <script src="../js/flexible.js"></script>
+    <script src="../lib/template.js"></script>
+    <script src="../js/venderapi.js"></script>
+    <script>
+        $(document).ready(function () {
+            venderapi.get("getUserCourses", "isInitPage=true&pageNumber=1", function (data) {
+                venderapi.html($('#tab2'), 'goumai', data);
+            });
+
+            venderapi.get("getUserCourses", "isInitPage=true&pageNumber=1", function (data) {
+                venderapi.html($('#tab1'), 'xuexi', data);
+            });
+        });
+    </script>
+    <script id="goumai" type="text/html">
+        <%result.rows.forEach(function(item){%>
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+                <a href="../pages/courseintroduction.htm?courseId=<%=item.id%>" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="<%=item.imgUrl%>" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name"><%=item.courseName%></h4>
+                        <ul class="weui-media-box__desc">
+                            <li class="item-teacher"><%=item.courseWard==null?"亲，这儿没有课程描述噢~":item.courseWard%></li>
+                            <li class="item-stu__cost">￥<%=item.salePrice%></li>
+                            <li class="item-cost__time">2018.08.06&nbsp;9:25</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <%})%>
+        <% if(result.rows.length==0){%>
+        <div class="weui-loadmore weui-loadmore_line">
+            <span class="weui-loadmore__tips">尚未购买课程^-^</span>
+        </div>
+        <%}%>
+    </script>
+
+    <script id="xuexi" type="text/html">
+        <%result.rows.forEach(function(item){%>
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__bd">
+                <a href="../pages/courseintroduction.htm?courseId=<%=item.id%>" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="<%=item.imgUrl%>" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name"><%=item.courseName%></h4>
+                        <ul class="weui-media-box__desc">
+                            <li class="item-teacher"><%=item.courseWard==null?"亲，这儿没有课程描述噢~":item.courseWard%></li>
+                            <li class="item-stu__num">共<%=item.sale_count==null?0:item.sale_count%>人学习|共<%=item.courseLessonses.length%>节课</li>
+                            <li class="item-time">6分钟</li>
+                        </ul>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <%})%>
+        <% if(result.rows.length==0){%>
+        <div class="weui-loadmore weui-loadmore_line">
+            <span class="weui-loadmore__tips">请您选个课程开始学习吧!</span>
+        </div>
+        <%}%>
+
+    </script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

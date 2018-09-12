@@ -1,0 +1,29 @@
+轮播图[已完成]
+http://192.168.1.123/api/mp/getBroadCastPicList.html?venderId=0a607c80722e4b209d6d6645ed917cb6
+分类[已完成]
+http://192.168.1.123/api/mp/getOrgCategorys.html?venderId=0a607c80722e4b209d6d6645ed917cb6
+专题[已完成]
+http://192.168.1.123/api/mp/getSpecialCourses.html?venderId=0a607c80722e4b209d6d6645ed917cb6&isInitPage=true&pageNumber=1
+直播课[已完成]
+http://192.168.1.123/api/mp/getCoursesList.html?venderId=0a607c80722e4b209d6d6645ed917cb6&courseType=20&isInitPage=true&pageNumber=1
+获取课程详情[已完成]
+http://192.168.1.123/api/mp/courseDetail.html?courseId=53549b4d83db463384c5aeedd1c0e918
+查询分类下的课程列表[已完成]
+http://192.168.1.123/api/mp/getCourseListByCategoryId.html?venderId=0a607c80722e4b209d6d6645ed917cb6&categoryId=beab452144934f80bebca10f008196b0&isInitPage=true&pageNumber=1
+查询分类下的课程列表[已完成]
+http://192.168.1.123/api/mp/getCourseListByCategoryId.html?venderId=0a607c80722e4b209d6d6645ed917cb6&categoryId=beab452144934f80bebca10f008196b0&isInitPage=true&pageNumber=1&courseType=20
+courseType ----- 10：视频课 20：直播课
+
+微信支付，确认订单
+http://192.168.1.123/api/mp/orderConfirm.html?courseId=53549b4d83db463384c5aeedd1c0e918&code=
+获取微信支付openId
+http://192.168.1.123/api/mp/getWechatOpenId.html?code=
+创建订单
+http://192.168.1.123/api/mp/makeWechatOrder.html?openId=&订单相关信息参数
+获取当前用户已购买课程信息
+http://192.168.1.123/api/mp/getUserCourses.html?isInitPage=true&pageNumber=1
+获取当前登录用户信息
+http://192.168.1.123/api/mp/getCurrentUserInfo.html
+获取当前用户订单信息
+http://192.168.1.123/api/mp/getUserOrders.html?status=1&isInitPage=true&pageNumber=1
+status 1:待付款 2:已付款

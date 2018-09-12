@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>专题</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <meta name="keywords" content="中国脑力联盟">
+    <meta name="description" content="中国脑力联盟">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.min.css">
+    <link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+</head>
+
+<body ontouchstart style="background: #fff;">
+    <div class="page__bd page__bd_spacing special-topic">
+        <!--<div class="weui-flex">
+            <div class="weui-flex__item">
+                <a href="courseintroduction.htm">
+                    <img src="../img/ztpic1_03.png" alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <img src="../img/ztpic1_03.png" alt="" />
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <img src="../img/ztpic1_03.png" alt="" />
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <img src="../img/ztpic1_03.png" alt="" />
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <img src="../img/ztpic1_03.png" alt="" />
+            </div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <img src="../img/ztpic1_03.png" alt="" />
+            </div>
+        </div>-->
+
+
+    </div>
+    <script src="../lib/jquery-2.1.4.js"></script>
+    <script src="../lib/fastclick.js"></script>
+    <script src="../js/jquery-weui.min.js"></script>
+    <!--<script src="js/swiper.min.js"></script>-->
+    <script src="../js/flexible.js"></script>
+
+    <script src="../js/venderapi.js"></script>
+    <script src="../lib/template.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //专题列表
+            venderapi.get('getSpecialCourses', '&isInitPage=true&pageNumber=1', function (data) {
+                venderapi.temp($(".special-topic"), 'zhuanti', data)
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script id="zhuanti" type="text/html">
+        <%result.rows.forEach(function(item){%>
+        <div class="weui-flex">
+            <div class="weui-flex__item">
+                <a href="courseintroduction.htm?courseId=<%=item.courseId%>">
+                    <img src="<%=item.imgUrl%>" alt="" />
+                </a>
+            </div>
+        </div>
+        <%})%>
+    </script>
+
+</body>
+
+</html>

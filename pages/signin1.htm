@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>签到</title>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/x-icon" href="" />
+		<meta name="keywords" content="中国脑力联盟">
+		<meta name="description" content="中国脑力联盟">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="rili.css" />
+	</head>
+
+	<body ontouchstart style="background: #fff;">
+
+		<div class="weui-panel__hd integral-hd sign-in">
+			<div class="integral-title">
+				<h3>签到领积分</h3>
+				<a href="myintegral.htm">我的积分</a>
+			</div>
+			<div class="show-integral">
+				<div class="center-box">
+					<a href="javascript:;" class="weui-btn" id="show-mask">签到</a>
+					<span>连续签到<i>0</i>天奖励<i>0</i>积分</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="weui-panel__bd">
+			<div class="Calendar">
+				<div id="toyear" class="flex flex-pack-center">
+					<div id="idCalendarPre">&lt;</div>
+					<div class="year-month">
+						<span id="idCalendarYear">2018</span>&nbsp;年&nbsp;<span id="idCalendarMonth">8</span>&nbsp;月
+					</div>
+					<div id="idCalendarNext">&gt;</div>
+				</div>
+				<table border="1px" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr class="tou">
+							<td>日</td>
+							<td>一</td>
+							<td>二</td>
+							<td>三</td>
+							<td>四</td>
+							<td>五</td>
+							<td>六</td>
+						</tr>
+					</thead>
+					<tbody id="idCalendar">
+						<tr>
+							<td><span>&nbsp;</span></td>
+							<td><span>&nbsp;</span></td>
+							<td><span>&nbsp;</span></td>
+							<td><span>&nbsp;</span></td>
+							<td><span>2</span></td>
+							<td><span>3</span></td>
+							<td><span>4</span></td>
+						</tr>
+						<tr>
+							<td><span>5</span></td>
+							<td><span>6</span></td>
+							<td><span>7</span></td>
+							<td><span>8</span></td>
+							<td><span>9</span></td>
+							<td><span>10</span></td>
+							<td><span>11</span></td>
+						</tr>
+						<tr>
+							<td><span>12</span></td>
+							<td><span>13</span></td>
+							<td><span>14</span></td>
+							<td><span>15</span></td>
+							<td><span>16</span></td>
+							<td class="onSign"><span>17</span></td>
+							<td class="onToday"><span>18</span></td>
+						</tr>
+						<tr>
+							<td><span>19</span></td>
+							<td><span>20</span></td>
+							<td><span>21</span></td>
+							<td><span>22</span></td>
+							<td><span>23</span></td>
+							<td><span>24</span></td>
+							<td><span>25</span></td>
+						</tr>
+						<tr>
+							<td><span>26</span></td>
+							<td><span>27</span></td>
+							<td><span>28</span></td>
+							<td><span>29</span></td>
+							<td><span>30</span></td>
+							<td><span>31</span></td>
+							<td>&nbsp;</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<script language="JavaScript">
+			</script>
+
+		</div>
+		<div id="pannel-mask">
+            <div class="mask-pannel"><img src="../img/sign_02.png" alt="" /></div>
+            
+        </div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/jquery-weui.min.js"></script>
+		<!--<script src="js/swiper.min.js"></script>-->
+		<script src="../js/flexible.js"></script>
+		<script src="rili.js"></script>
+<script type="text/javascript" class="dialog js_show">
+    $(function(){
+    	$('#show-mask').on('click', function(){
+//  		alert("woshiwangzhiyang");
+    	});
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+//          $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#show-mask').on('click', function(){
+            $('#pannel-mask').fadeIn(200);
+            $('#show-mask').text('已签到');
+            $(this).addClass('change-bg');
+            $("#show-mask").unbind();
+        });
+ 		$('.mask-pannel').click(function(){
+ 			$("#pannel-mask").fadeOut(200);
+ 		});
+    });</script>
+    <script type="text/javascript">
+    	var isSign = false;
+    	var myday = [1534575827];
+//  	var myday = new Array();
+
+
+    	var cale = new Calendar("idCalendar",{
+    		qdDay: myday,
+    		onToday:function(o){
+    			o.className = "onSign";
+    		}
+    	});
+    	ybb("show-mask").onclick = function(){
+    		if(isSign == false){
+    			var res = cale.SignIn();
+    			if(res == '1'){
+    				isSign = true;
+    			}
+    		} else{
+    			alert('今天已经签到了')
+    		}
+    	}
+    </script>
+	</body>
+
+</html>

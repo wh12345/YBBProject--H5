@@ -1,0 +1,258 @@
+﻿<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Template 演示页面 实例</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <meta name="keywords" content="中国脑力联盟">
+    <meta name="description" content="中国脑力联盟">
+    <link rel="stylesheet" href="./lib/weui.min.css">
+    <link rel="stylesheet" href="./css/jquery-weui.min.css">
+    <link href="./css/ybb-master.css" type="text/css" rel="stylesheet">
+
+</head>
+
+<body ontouchstart style="background: #ccc;">
+    <!--Header Search Area-->
+    <header class="search_find mod_header_search_find">
+        <!--<section ng-click="toggleLeft()" class="leftbtn">-->
+        <!--<button class="sidebtn"></button><span>分类</span>-->
+        <!--</section>-->
+        <div class="mod_header_search_find_div">
+            <div class="header_container" id="findInput">
+                <input ng-model="keyword" type="text" value="" placeholder="课程名称、主讲教师" class="ng-valid ng-dirty ng-touched">
+                <button ng-click="toSearch()" class=""></button>
+            </div>
+        </div>
+    </header>
+    <!--Header Start-->
+    <!--<header class="header">
+        <a href="#" class="logotxt">
+            中国智力联盟
+        </a>
+    </header>-->
+    <!--Header End-->
+    <!--Swiper幻灯片-->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--<div class="swiper-slide">
+                <img src="img/ban1.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="img/ban2.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="img/ban3.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+                <img src="img/ban4.jpg" alt="" />
+            </div>-->
+        </div>
+        <!--Add Pagination-->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!--Swiper幻灯片结束-->
+    <!--tab导航-->
+    <div class="weui-flex classify_list">
+        <div class="weui-flex__item">
+            <a class="tab-list" href="./pages/special_topic.html">
+                <!--bug-->
+                <img src="img/nav_zt.png" alt="" />
+                <span class="title ng-binding">专题</span>
+            </a>
+        </div>
+        <div class="weui-flex__item">
+            <a class="tab-list" href="./pages/course-sorts.html">
+                <img src="img/nav_fl.png" alt="" />
+                <span class="title ng-binding">分类</span>
+            </a>
+        </div>
+        <div class="weui-flex__item">
+            <a class="tab-list" href="./pages/upgrade_member.html">
+                <img src="img/nav_hy.png" alt="" />
+                <span class="title ng-binding">会员</span>
+            </a>
+        </div>
+    </div>
+    <!--tab导航结束-->
+    <!--直播专区内容块开始-->
+    <div class="page-live">
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__hd">
+                <span class="hd-left">直播专区</span>
+                <a href="javascript:void(0);" class="hd-right">更多</a>
+            </div>
+            <div class="weui-panel__bd">
+                <!--<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd live-img">
+                        <img class="weui-media-box__thumb" src="img/pic1.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name">道德经思维导图</h4>
+                        <span class="lesson-teacher">张广来·全脑教育金牌讲师</span>
+                        <span class="lesson-student">119人学习|9课<i class="lesson-cost">￥20</i></span>
+                        <span class="time-info">直播时间：<i class="time">7/26&nbsp;&nbsp;10:25</i></span>
+                    </div>
+                </a>
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd live-img">
+                        <img class="weui-media-box__thumb" src="img/pic2.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name">道德经思维导图</h4>
+                        <span class="lesson-teacher">张广来·全脑教育金牌讲师</span>
+                        <span class="lesson-student">119人学习|9课<i class="lesson-cost">￥20</i></span>
+                        <span class="time-info">直播时间：<i class="time">7/26&nbsp;&nbsp;10:25</i></span>
+                    </div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+    <div class="page-lesson">
+        <div class="weui-panel__hd">
+            <span class="hd-left">推荐课程</span>
+            <a href="javascript:void(0);" class="hd-right">更多</a>
+        </div>
+        <div class="weui-grids">
+            <a href="javascript:;" class="weui-grid">
+                <div class="lesson-img">
+                    <img src="img/pic4.png" alt="">
+                </div>
+                <div class="lesson-info">
+                    <h4 class="title">幼儿英语训练班</h4>
+                    <span class="cost">免费</span>
+                    <div class="author-viewer">
+                        <span class="author"><i class=""></i>黄铮</span>
+                        <span class="viewer-num"><i class=""></i>152</span>
+                    </div>
+                </div>
+            </a>
+            <a href="javascript:;" class="weui-grid">
+                <div class="lesson-img">
+                    <img src="img/pic3.png" alt="">
+                </div>
+                <div class="lesson-info">
+                    <h4 class="title">幼儿英语训练班</h4>
+                    <span class="cost">免费</span>
+                    <div class="author-viewer">
+                        <span class="author"><i></i>黄铮</span>
+                        <span class="viewer-num"><i></i>152</span>
+                    </div>
+                </div>
+            </a>
+            <a href="javascript:;" class="weui-grid">
+                <div class="lesson-img">
+                    <img src="img/pic4.png" alt="">
+                </div>
+                <div class="lesson-info">
+                    <h4 class="title">幼儿英语训练班</h4>
+                    <span class="cost">免费</span>
+                    <div class="author-viewer">
+                        <span class="author"><i></i>黄铮</span>
+                        <span class="viewer-num"><i></i>152</span>
+                    </div>
+                </div>
+            </a>
+            <a href="javascript:;" class="weui-grid">
+                <div class="lesson-img">
+                    <img src="img/pic3.png" alt="">
+                </div>
+                <div class="lesson-info">
+                    <h4 class="title">幼儿英语训练班</h4>
+                    <span class="cost">免费</span>
+                    <div class="author-viewer">
+                        <span class="author"><i></i>黄铮</span>
+                        <span class="viewer-num"><i></i>152</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!--直播专区内容块结束-->
+    <!--底部菜单开始-->
+    <div class="footer-tabbar js_show">
+        <div class="weui-tabbar">
+            <a href="/" class="weui-tabbar__item weui-bar__item_on">
+                <img src="img/footer_1.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">首页</p>
+            </a>
+            <a href="./pages/my_lesson.html" class="weui-tabbar__item">
+                <img src="img/footer_2.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">我的课程</p>
+            </a>
+
+            <a href="./pages/user_center.html" class="weui-tabbar__item">
+                <img src="img/footer_3.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">我的</p>
+            </a>
+        </div>
+    </div>
+    <script src="/js/flexible.js"></script>
+    <script src="./lib/jquery-2.1.4.js"></script>
+    <script src="./lib/fastclick.js"></script>
+
+    <script src="./js/jquery-weui.min.js"></script>
+    <script src="./js/swiper.min.js"></script>
+    <script src="./js/venderapi.js"></script>
+    <script src="./lib/template.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //轮播图
+            venderapi.get('getBroadCastPicList', '', function (data) {
+                venderapi.temp($(".swiper-wrapper"), 'lubotu', data)
+            });
+
+            //直播区域
+            venderapi.get('getCoursesList', '&courseType=20&isInitPage=true&pageNumber=1', function (data) {
+                venderapi.temp($(".page-live .weui-panel__bd"), 'zhiboqu', data);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+        $(function () {
+            $(".swiper-container").swiper({
+                loop: true,
+                autoplay: 9000
+            });
+        });
+    </script>
+    <!--底部菜单结束-->
+    <!--template模板-->
+    <script id="lubotu" type="text/html">
+        <%result.forEach(function(item){%>
+        <div class="swiper-slide">
+            <img src="<%=item.imgUrl%>" alt="" />
+        </div>
+        <%})%>
+    </script>
+
+    <script id="zhiboqu" type="text/html">
+        <%result.rows.forEach(function(item){%>
+        <a href='javascript:void(0);' class='weui-media-box weui-media-box_appmsg'>
+            <div class='weui-media-box__hd live-img'>
+                <img class='weui-media-box__thumb' src='<%=item.imgUrl%>' alt=''>
+            </div>
+            <div class='weui-media-box__bd'>
+                <h4 class='weui-media-box__title lesson-name'><%=item.courseName%></h4>
+                <span class='lesson-teacher'>张广来·全脑教育金牌讲师</span>
+                <span class='lesson-student'>119人学习|9课<i class='lesson-cost'>￥<%=item.salePrice%></i></span>
+                <span class='time-info'>直播时间：<i class='time'>7/26&nbsp;&nbsp;10:25</i></span>
+            </div>
+        </a>
+        <%})%>
+    </script>
+</body>
+
+</html>

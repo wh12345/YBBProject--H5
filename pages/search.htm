@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>查找课程</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <meta name="keywords" content="中国脑力联盟">
+    <meta name="description" content="中国脑力联盟">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.min.css">
+    <link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+</head>
+
+<body ontouchstart style="background: #fff;">
+    <div class="course-sort">
+        <div class="weui-panel weui-panel_access">
+            <div class="search-area">
+                <div class="weui-search-bar" id="searchBar">
+            <form class="weui-search-bar__form">
+                <div class="weui-search-bar__box">
+                    <i class="weui-icon-search"></i>
+                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                </div>
+                <label class="weui-search-bar__label" id="searchText" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">
+                    <i class="weui-icon-search"></i>
+                    <span>搜索</span>
+                </label>
+            </form>
+            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+        </div>
+            </div>
+            <div id="divLiebiao" class="weui-panel__bd">
+                <!--<a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd live-img">
+                        <img class="weui-media-box__thumb" src="../img/pic1.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name">道德经思维导图</h4>
+                        <span class="lesson-teacher">张广来·全脑教育金牌讲师</span>
+                        <span class="lesson-student">119人学习|9课<i class="lesson-cost">￥20</i></span>
+                        <span class="time-info">直播时间：<i class="time">7/26&nbsp;&nbsp;10:25</i></span>
+                    </div>
+                </a>
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd live-img">
+                        <img class="weui-media-box__thumb" src="../img/pic2.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title lesson-name">道德经思维导图</h4>
+                        <span class="lesson-teacher">张广来·全脑教育金牌讲师</span>
+                        <span class="lesson-student">119人学习|9课<i class="lesson-cost">￥20</i></span>
+                        <span class="time-info">直播时间：<i class="time">7/26&nbsp;&nbsp;10:25</i></span>
+                    </div>
+                </a>-->
+            </div>
+        </div>
+    </div>
+
+    <script src="../lib/jquery-2.1.4.js"></script>
+    <script src="../lib/fastclick.js"></script>
+
+    <script src="../js/jquery-weui.min.js"></script>
+    <!--<script src="js/swiper.min.js"></script>-->
+    <script src="../js/flexible.js"></script>
+    <script src="../js/venderapi.js"></script>
+    <script src="../lib/template.js"></script>
+    
+<script type="text/javascript">
+//  	$(function(){
+//  		var urlPara = "&isInitPage=true&pageNumber=1";
+//              venderapi.get("getCourseListByCategoryId", urlPara, function (data) {
+//                  venderapi.html($("#divLiebiao"), "liebiao", data);
+//              });
+//  	});
+$(function(){
+	$("#searchInput").on('keypress',function(e) {
+                var keycode = e.keyCode;
+                var courseName = $(this).val();
+                if(keycode=='13') {
+//                  e.preventDefault();  
+                    //请求搜索接口
+                    var urlPara = "&isInitPage=true&pageNumber=1&courseName="+ courseName;
+                    venderapi.get("getCoursesList", urlPara, function (data) {
+                        venderapi.html($("#divLiebiao"), "liebiao", data);
+                    });
+                }
+         });
+
+});
+
+        $(document).ready(function () {
+            //初始化显示机构分类信息
+            venderapi.get('getOrgCategorys', '', function (data) {
+                //console.warn("-----------------");
+
+                //绑定单击事件
+                $(".search-area .weui-icon-search").click(function () {
+//              	console.log($('#searchInput').val());
+
+					var courseName = $('#searchInput').val();
+                    var urlPara = "&isInitPage=true&pageNumber=1&courseName="+ courseName;
+//console.log(urlPara);
+
+                    venderapi.get("getCoursesList", urlPara, function (data) {
+                        venderapi.html($("#divLiebiao"), "liebiao", data);
+                    });
+                });
+            });
+        });
+    </script>
+    <script id="liebiao" type="text/html">
+        <%result.rows.forEach(function(item){%>
+        <a href="../pages/courseintroduction.htm?courseId=<%=item.id%>" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd live-img">
+                <img class="weui-media-box__thumb" src="<%=item.imgUrl%>" alt="">
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title lesson-name"><%=item.courseName%></h4>
+                <span class="lesson-teacher"><%=item.courseWard==null?"亲，这儿没有课程描述噢~":item.courseWard%></span>
+                <span class="lesson-student">共<%=item.sale_count==null?0:item.sale_count%>人学习|共<%=item.courseLessonses.length%>节课<i class="lesson-cost">￥<%=item.salePrice%></i></span>
+                <span class="time-info">直播时间：<i class="time">7/26&nbsp;&nbsp;10:25</i></span>
+            </div>
+        </a>
+        <%})%>
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+        $(function(){
+        });
+    </script>
+    <!--分类模板-->
+  
+    
+</body>
+
+</html>

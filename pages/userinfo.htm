@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>个人信息</title>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/x-icon" href="" />
+		<meta name="keywords" content="中国脑力联盟">
+		<meta name="description" content="中国脑力联盟">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body ontouchstart>
+		<form class="user-info" action="">
+			<div class="weui-cells weui-cells_form">
+				<div class="weui-cell weui-cell_access">
+					<div class="weui-cell__hd"><label class="weui-label">昵称</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="未设置" />
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<div class="weui-cell__hd">
+						<label class="weui-label">手机号</label>
+					</div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="tel" placeholder="请输入您的手机号">
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<!--选择使用一个dialog弹出框进行单项选择类似于智联的选择样式-->
+
+					<div class="weui-cell__hd"><label for="" class="weui-label">性别</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" id="gender" type="text" value="" placeholder="未选择"/>
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<!--使用jQueryweui的地区选择插件或者zepto.min.js的插件-->
+					<!--select jQueryweui下的组件-->
+					<div class="weui-cell__hd"><label for="" class="weui-label">地区</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" id='city-picker' type="text" value="" placeholder="请输入详细地址" />
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</div>
+				<div class="weui-cell weui-cell_access">
+					<div class="weui-cell__hd"><label class="weui-label">邀请人</label></div>
+					<div class="weui-cell__bd">
+						<input class="weui-input" type="text" placeholder="暂无" />
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</div>
+
+			</div>
+		</form>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+
+		</script>
+		<script src="../js/city-picker.min.js"></script>
+		<script src="../js/jquery-weui.js"></script>
+		<script src="../js/flexible.js"></script>
+		<script type="text/javascript">
+			$("#gender").select({
+        items: ["男", "女"],
+        closeText:"取消",
+        onChange: function(d) {
+          console.log(this, d);
+        },
+        onClose: function() {
+          console.log("close");
+        },
+        onOpen: function() {
+          console.log("open");
+        },
+      });
+			$("#city-picker").cityPicker({
+				title: "请选择收货地址"
+			});
+		</script>
+		<!--<script src="js/swiper.min.js"></script>-->
+
+	</body>
+
+</html>

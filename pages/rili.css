@@ -1,0 +1,56 @@
+.Calendar{
+	background: #fff;
+	padding-bottom: 1rem;
+}
+#toyear{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 54px;
+    font-size: 16px;
+    color: #3a3a3a;
+
+}
+.Calendar table,
+.Calendar tr,
+.Calendar td {
+  border: 0;
+}
+.Calendar table {
+  /*width: 96%;*/
+  margin: 0 auto;
+}
+.Calendar table tr.tou{
+	font-size: 14px;
+	    font-weight: bold;
+	
+}
+#idCalendarPre,#idCalendarNext{
+	display: none;
+}
+.Calendar table tr {
+  text-align: center;
+  /*height: 2rem;*/
+}
+.Calendar table tr td span {
+      margin: 2px 6px;
+  display: block;
+  line-height:0.93rem;
+  width: 0.93rem;
+  height: 0.93rem;
+  font-size: 14px;
+    /*border-radius: 100%;*/
+    font-weight: 400;
+  border-radius: 100%;
+  color: #1e1d1b;
+}
+.Calendar table tr .onToday span {
+  border: 2px solid #33BECB;
+  box-sizing: border-box;
+  color: #1e1d1b;
+}
+.Calendar table tr .onSign span{
+	background: #fdb046;
+  color: #fff;
+	
+}

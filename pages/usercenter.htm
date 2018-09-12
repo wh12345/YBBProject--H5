@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>个人中心</title>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/x-icon" href="" />
+		<meta name="keywords" content="中国脑力联盟">
+		<meta name="description" content="中国脑力联盟">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body ontouchstart style="background: #fff;">
+		<div class="header-box name-avatar">
+			<a class="header-inner" href="userinfo.htm">
+				
+			<div class="circle-img">
+				
+			<img class="user-avatar" src="../img/tx_03.png" alt="" id="headImg"/>
+			</div>
+			<span class="user-info__item user-name" id="nickname">笑看天下</span>
+			<span class="user-info__item user-grade">普通会员</span>
+			</a>
+			<a class="sign-box" href="signin1.htm">签到</a>
+		</div>
+		<div class="center-box">
+			<div class="weui-flex">
+				<div class="weui-flex__item">
+					<a class="integral" href="myintegral.htm">
+						<h5>我的积分</h5>
+						<span>0</span>
+					</a>
+				</div>
+				<div class="weui-flex__item"> 
+					<a class="member" href="upgrademember.htm">
+						<h5>升级会员</h5>
+						<span>20天后升级</span>
+					</a>
+				</div>
+				<div class="weui-flex__item">
+					<div class="income">
+						<h5>我的收益</h5>
+						<span>0</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="info-list">
+			<div class="weui-cells">
+				<a class="weui-cell weui-cell_access" href="myorder.htm">
+					<div class="weui-cell__hd"><img src="../img/user_ico1.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui-cell__bd">
+						<p>我的订单</p>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="offlineoutlet.htm">
+					<div class="weui-cell__hd"><img src="../img/user_ico2.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui-cell__bd">
+						<p>线下网点</p>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+				<a class="weui-cell weui-cell_access show-mask">
+					<div class="weui-cell__hd"><img src="../img/user_ico3.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+					<div class="weui-cell__bd">
+						<p>分享名片</p>
+					</div>
+					<div class="weui-cell__ft"></div>
+				</a>
+			</div>
+		</div>
+		<div id="qr-code">
+            <div class="mask-pannel"><img src="../img/qrcode.png" alt="脑力联盟分享"/></div>
+            
+        </div>
+		<!--底部菜单开始-->
+		<div class="footer-tabbar js_show">
+			<div class="weui-tabbar">
+				<a href="../index.htm" class="weui-tabbar__item">
+					<img src="../img/footer_1.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">首页</p>
+				</a>
+				<a href="../pages/mylesson.htm" class="weui-tabbar__item">
+					<img src="../img/footer_2.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">我的课程</p>
+				</a>
+
+				<a href="../pages/usercenter.htm" class="weui-tabbar__item weui-bar__item_on">
+					<img src="../img/footer_hover3.png" alt="" class="weui-tabbar__icon">
+					<p class="weui-tabbar__label">我的</p>
+				</a>
+			</div>
+		</div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script src="../js/venderapi.js"></script>
+		<script src="../js/jquery-weui.min.js"></script>
+		<!--<script src="js/swiper.min.js"></script>-->
+		<script src="../js/flexible.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+			
+			//获取用户信息
+			venderapi.get('getCurrentUserInfo', '', function(data) {
+				if(data!=null && data!='undefined'){
+					var headImgUrl=data.result.legalUrl;
+					$('#headImg').attr("src",headImgUrl);
+					$('#nickname').html(data.result.nickName)
+				}
+			});
+		</script>
+<script type="text/javascript">
+					$('.show-mask').on('click', function(){
+$("#qr-code").fadeIn(200);
+    	});
+    	$('.mask-pannel').click(function(){
+ 			$("#qr-code").fadeOut(200);
+ 		});
+				</script>
+	</body>
+
+</html>

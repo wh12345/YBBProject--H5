@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的积分</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <meta name="keywords" content="中国脑力联盟">
+    <meta name="description" content="中国脑力联盟">
+    <link rel="stylesheet" href="../lib/weui.min.css">
+    <link rel="stylesheet" href="../css/jquery-weui.min.css">
+    <link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+</head>
+
+<body ontouchstart style="background: #fff;">
+
+    <div class="weui-panel__hd integral-hd">
+        <div class="integral-title">
+            <h3>我的积分</h3>
+            <a href="pointsdetails.htm">积分明细</a>
+        </div>
+        <div class="show-integral">
+            <div class="center-box">
+                <span>0.00<i>积分</i></span>
+                <a href="" class="weui-btn">积分兑换</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-panel__bd">
+        <span class="integral-raiders">积分攻略</span>
+        <div class="weui-media-box weui-media-box_text sign-way">
+            <div class="weui-media-box__title">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/integral_03.png" alt="" style=""></div>
+                        <div class="weui-cell__bd">
+                            <p>签到</p>
+                        </div>
+                        <!-- <a class="weui-cell__ft" href="signin1.htm">领取</a> -->
+                    </div>
+                </div>
+            </div>
+            <div class="weui-meida-box__desc">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/integral_03.png" alt="" style="visibility: hidden;"></div>
+                        <div class="weui-cell__bd">
+                            <p>每天签到挣积分</p>
+                            <p>连续签到0天，奖励0积分</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="weui-media-box weui-media-box_text sign-way">
+            <div class="weui-media-box__title">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/integral_09.png" alt="" style=""></div>
+                        <div class="weui-cell__bd">
+                            <p>邀请好友</p>
+                        </div>
+                        <!-- <div class="weui-cell__ft">领取</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="weui-meida-box__desc">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/integral_09.png" alt="" style="visibility: hidden;"></div>
+                        <div class="weui-cell__bd">
+                            <p>成功邀请一位学员可获得0积分</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="weui-media-box weui-media-box_text sign-way">
+            <div class="weui-media-box__title">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/integral_06.png" alt="" style=""></div>
+                        <div class="weui-cell__bd">
+                            <p>观看课程</p>
+                        </div>
+                        <!-- <div class="weui-cell__ft">领取</div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="weui-meida-box__desc">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__hd"><img src="../img/inte_06.png" alt="" style="visibility: hidden;"></div>
+                        <div class="weui-cell__bd">
+                            <p>收听音频可以获得0积分，观看视频可以获得0积分，积分数根据观看的时长来决定，不满一分钟则不计算（每个音频，视频只能获取一次）</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="../lib/jquery-2.1.4.js"></script>
+    <script src="../lib/fastclick.js"></script>
+    <script src="../js/venderapi.js"></script>
+    <script src="../lib/template.js"></script>
+    <script>
+        $(document).ready(function () {
+            venderapi.get('getCurrentUserInfo', '', function (data) {
+                console.log(data);
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            FastClick.attach(document.body);
+        });
+    </script>
+    <script src="../js/jquery-weui.min.js"></script>
+    <!--<script src="js/swiper.min.js"></script>-->
+    <script src="../js/flexible.js"></script>
+
+</body>
+
+</html>

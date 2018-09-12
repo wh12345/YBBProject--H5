@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>升级会员</title>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/x-icon" href="" />
+		<meta name="keywords" content="中国脑力联盟">
+		<meta name="description" content="中国脑力联盟">
+		<link rel="stylesheet" href="../lib/weui.min.css">
+		<link rel="stylesheet" href="../css/jquery-weui.min.css">
+		<link href="../css/ybb-master.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body ontouchstart>
+		<div class="upgrade-page">
+			<div class="weui-cells__title">请选择升级类型</div>
+			
+			<div class="weui-cells__title">请选择支付方式</div>
+			<div class="weui-cells weui-cells_checkbox">
+				<label class="weui-cell weui-check__label" for="x11">
+					<div class="weui-cell__hd"><img src="../img/weixin.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>微信支付</p>
+	                </div>
+	                <div class="weui-cell__ft">
+	                    <input type="radio" class="weui-check" name="radio1" id="x11" checked="checked">
+	                    <span class="weui-icon-checked"></span>
+	                </div>
+            	</label>
+				<label class="weui-cell weui-check__label" for="x12">
+					<div class="weui-cell__hd"><img src="../img/yue.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+	                <div class="weui-cell__bd">
+	                    <p>账号余额</p>
+	                </div>
+	                <div class="weui-cell__ft">
+	                    <input type="radio" name="radio1" class="weui-check" id="x12">
+	                    <span class="weui-icon-checked"></span>
+	                </div>
+            	</label>
+			</div>
+			<a href="javascript:;" class="weui-btn">确认支付￥299.00</a>
+		</div>
+		<script src="../lib/jquery-2.1.4.js"></script>
+		<script src="../lib/fastclick.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				FastClick.attach(document.body);
+			});
+		</script>
+		<script src="../js/city-picker.min.js"></script>
+		<script src="../js/jquery-weui.min.js"></script>
+		<script src="../js/flexible.js"></script>
+		<!--<script src="js/swiper.min.js"></script>-->
+	</body>
+
+</html>
